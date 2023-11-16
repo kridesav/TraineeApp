@@ -1,4 +1,4 @@
-export function GlobalFilter({
+export default function GlobalFilter({
     preGlobalFilteredRows,
     globalFilter,
     setGlobalFilter,
