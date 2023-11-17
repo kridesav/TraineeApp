@@ -3,18 +3,18 @@ import Customers from './pages/Customers'
 import Trainings from './pages/Trainings'
 import Calendar from './pages/Calendar'
 import Statistics from './pages/Statistics'
-import './Index.css'
+import './styles/Index.css'
 
 function App() {
   return (
     <div>
-      <nav className='navbar'>
+      <nav className='navbar-custom'>
         <NavLink to="/customers" activeclassname="active">Customers</NavLink>
         <NavLink to="/trainings" activeclassname="active">Trainings</NavLink>
         <NavLink to="/calendar" activeclassname="active">Calendar</NavLink>
         <NavLink to="/statistics" activeclassname="active">Statistics</NavLink>
       </nav>
-      <main>
+      <main className='main-custom'>
       <Routes>
         <Route path="/" element={<Navigate to="/customers" replace />} />
         <Route path="/customers" element={<Customers />} />

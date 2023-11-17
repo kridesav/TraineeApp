@@ -16,20 +16,20 @@ body {
   align-items: center;
 }
 
-.navbar {
+.navbar-custom{
   display: flex;
   justify-content: center;
   align-items: center; 
   gap: 20px;
   height: 60px; 
-  width: 80%;
+  width: 100%;
   margin: auto;
   position: sticky;
   top: 0;
   z-index: 1000;
-  
+  background-color: white;
 }
-.navbar a {
+.navbar-custom a {
   color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
@@ -38,18 +38,32 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.navbar a.active {
+.navbar-custom a.active {
   box-shadow: 0 2px 0px 0px var(--primary-color);
 }
 
-.navbar a:hover {
+.navbar-custom a:hover {
   background-color: var(--hover-color);
   color: var(--background-color);
 }
 
-main {
+.main-custom {
   max-width: 1200px;
   margin: 20px;
   width: 100%;
   flex: 1;
+}
+
+.newcustomer-button{
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 10px 20px;
+
+  transition: background-color 0.3s ease;
+}
+
+.newcustomer-button:hover {
+  background-color: var(--hover-color);
+  color: var(--background-color);
 }

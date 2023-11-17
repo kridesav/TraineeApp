@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 export default function FetchData({ url, setData, useContent = true }) {
-  useEffect(() => {
+  const [reload, setReload] = useState(false);
+
+  const fetchData = () => {
     fetch(url)
       .then(response => {
         if (response.ok) {
@@ -12,7 +14,11 @@ export default function FetchData({ url, setData, useContent = true }) {
       .then(response => response.json())
       .then(data => setData(useContent ? data.content : data))
       .catch(error => console.error('Error:', error));
-  }, [url, setData, useContent]);
+  };
 
-  return null;
+  useEffect(() => {
+    fetchData();
+  }, [url, setData, useContent, reload]);
+
+  return fetchData;
 }

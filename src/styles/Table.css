@@ -1,28 +1,29 @@
-table {
+.table-custom {
     border-spacing: 0;
     width: 100%;
 }
 
-th,
-td {
+.th-custom,
+.td-custom {
     margin: 0;
     padding: 0.6rem;
     border-bottom: 1px solid black;
     color: black;
+    text-align: center;
 
     :last-child {
         border-right: 0;
     }
 }
 
-th {
+.th-custom {
     background: #ffffff;
     border-bottom: 2px solid black;
 }
 
 .filter-input {
     width: 80%;
-    padding: 0.3rem;
+    
     margin: 0.5rem;
     border: none;
     border-bottom: 1px solid blue;
@@ -63,3 +64,28 @@ tbody tr:nth-child(odd) {
     align-items: center;
     padding: 2em;
 }
+.sort-custom{
+    text-align: center;
+}
+
+.custom-modal > .modal-dialog {
+    max-width: 31%;
+  }
+  
+  .form-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+     margin: auto;
+    gap: 1rem;
+  }
+  
+  .form-grid .form-group {
+    flex: 1 0 calc(50% - 1rem);
+    padding: 0.5rem;
+  }
+  .form-grid .submit-button {
+    align-self: flex-end;
+    width: 100%;
+    padding: 0.5rem 1rem;
+  }
