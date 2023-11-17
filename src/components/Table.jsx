@@ -6,10 +6,22 @@ import NewCustomerModal from "../modals/NewCustomerModal";
 import NewTrainingModal from "../modals/NewTrainingModal";
 import "../styles/Table.css";
 
-export default function Table({ columns, data, fetchData, page, customers }) {
-    const [showModal, setShowModal] = useState(false);
-    const handleClose = () => setShowModal(false);
-    const handleShow = () => setShowModal(true);
+export default function Table({ columns, data, fetchData, page, customers, editCustomer, showModal, setShowModal, setEditCustomer }) {
+
+    const handleShow = () => {
+        if (page === 'Customers') {
+            setEditCustomer(null);
+        }
+        setShowModal(true);
+    };
+
+    const handleClose = () => {
+        setShowModal(false);
+        if (page === 'Customers') {
+            setEditCustomer(null);
+        }
+    };
+
     const {
         getTableProps,
         getTableBodyProps,
@@ -30,8 +42,14 @@ export default function Table({ columns, data, fetchData, page, customers }) {
                 globalFilter={state.globalFilter}
                 setGlobalFilter={setGlobalFilter}
             />
-            <NewButton handleShow={handleShow} page={page}/>
-            <ModalComponent showModal={showModal} handleClose={handleClose} fetchData={fetchData} customers={customers} />
+            <NewButton handleShow={handleShow} page={page} />
+            <ModalComponent
+                showModal={showModal}
+                handleClose={handleClose}
+                fetchData={fetchData}
+                customers={customers}
+                editCustomer={editCustomer}
+            />
             <table className="table-custom" {...getTableProps()}>
                 <thead>
                     {headerGroups.map(headerGroup => (

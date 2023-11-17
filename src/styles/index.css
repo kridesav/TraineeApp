@@ -67,3 +67,8 @@ body {
   background-color: var(--hover-color);
   color: var(--background-color);
 }
+
+.edit-delete-btn {
+  background-color: transparent;
+  border: none;
+}
