@@ -1,4 +1,4 @@
-import { Routes, Route, Redirect, NavLink } from 'react-router-dom'
+import { Routes, Route, Navigate, NavLink } from 'react-router-dom'
 import Customers from './pages/Customers'
 import Trainings from './pages/Trainings'
 import Calendar from './pages/Calendar'
@@ -16,11 +16,11 @@ function App() {
       </nav>
       <main className='main-custom'>
         <Routes>
-          <Route path="/" element={<Redirect to="/customers" />} />
           <Route path="/customers" element={<Customers />} />
           <Route path="/trainings" element={<Trainings />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/statistics" element={<Statistics />} />
+          <Route path="/" element={<Navigate to="/customers" replace />} />
         </Routes>
       </main>
     </div>
