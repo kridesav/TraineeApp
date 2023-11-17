@@ -5,6 +5,7 @@ import NewButton from "./NewButton";
 import NewCustomerModal from "../modals/NewCustomerModal";
 import NewTrainingModal from "../modals/NewTrainingModal";
 import "../styles/Table.css";
+import { CSVLink } from "react-csv";
 
 export default function Table({ columns, data, fetchData, page, customers, editCustomer, showModal, setShowModal, setEditCustomer }) {
 
@@ -21,6 +22,11 @@ export default function Table({ columns, data, fetchData, page, customers, editC
             setEditCustomer(null);
         }
     };
+
+    const csvData = [
+        ["firstname", "lastname", "streetaddress", "postcode", "city", "email", "phone"],
+        ...customers.map(customer => [customer.firstname, customer.lastname, customer.streetaddress, customer.postcode, customer.city, customer.email, customer.phone])
+    ];
 
     const {
         getTableProps,
@@ -43,6 +49,9 @@ export default function Table({ columns, data, fetchData, page, customers, editC
                 setGlobalFilter={setGlobalFilter}
             />
             <NewButton handleShow={handleShow} page={page} />
+            {page === 'Customers' && (
+                <CSVLink data={csvData} filename={"customers.csv"} className="btn btn-primary m-2"> Export to CSV </CSVLink>
+            )}
             <ModalComponent
                 showModal={showModal}
                 handleClose={handleClose}

@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { ColumnFilter } from '/src/components/ColumnFilter.jsx';
 import { MdDelete } from "react-icons/md";
 
-export default function TrainingTableColumns({ handleEdit, handleDelete }) {
+export default function TrainingTableColumns({ handleDelete }) {
     function formatDate(string) {
         var options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
         return new Date(string).toLocaleDateString([], options);
