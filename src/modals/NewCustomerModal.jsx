@@ -19,7 +19,8 @@ export default function NewCustomerModal({ showModal, handleClose, fetchData, ed
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (method === 'PUT') {
-      await newCustomer(customer, handleClose, method, editCustomer.links[0].href);
+      let secureLink = editCustomer.links[0].href.replace("http://", "https://");
+      await newCustomer(customer, handleClose, method, secureLink);
     } else {
       await newCustomer(customer, handleClose, method, 'https://traineeapp.azurewebsites.net/api/customers');
     }
