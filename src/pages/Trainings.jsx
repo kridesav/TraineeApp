@@ -13,7 +13,7 @@ export default function Trainings() {
       console.log(training);
       const confirmDelete = window.confirm(`Are you sure you want to delete ${training.activity}?`);
       if (confirmDelete) {
-        deleteRow(`http://traineeapp.azurewebsites.net/api/trainings/${training.id}`)
+        deleteRow(`https://traineeapp.azurewebsites.net/api/trainings/${training.id}`)
           .then(() => {
             fetchData();
           });
