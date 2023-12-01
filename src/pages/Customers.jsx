@@ -17,7 +17,8 @@ export default function Customers() {
   const handleDelete = (customer) => {
     const confirmDelete = window.confirm(`Are you sure you want to delete ${customer.firstname}?`);
     if (confirmDelete) {
-      deleteRow(customer.links[0].href)
+      let secureLink = customer.links[0].href.replace("http://", "https://");
+      deleteRow(secureLink)
         .then(() => {
           fetchData();
         });
